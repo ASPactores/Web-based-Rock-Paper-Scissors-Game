@@ -108,6 +108,41 @@ body {
     top: 15px;
 }
 
+.pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(202, 114, 31);
+    border: 15px double rgb(128, 72, 12);
+    height: 400px;
+    width: 800px;
+    position: absolute;
+    padding: 20px;
+}
+
+.pop-up .game-result {
+    text-align: center;
+    font: 70px pixel;
+    color: #1c304a;
+}
+
+.pop-up button {
+    background-color: #1c304a;
+    border: none;
+    padding: 30px;
+    font: 25px pixel;
+    color: white;
+    border-radius: 30px;
+    width: 40%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.pop-up button:hover {
+    background-color: #244065;
+}
+
 footer {
     background-color: #1c304a;
     position: absolute;

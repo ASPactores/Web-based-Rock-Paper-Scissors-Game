@@ -1,24 +1,25 @@
 const userHandDisplayDestination = "user-chosen-hand";
 const computerHandDisplayDestination = "computer-chosen-hand";
 var chosenHand = {};
+
 var score = {
     user: 0,
     computer: 0,
     adjustScore: (comparisonResult) => {
         switch(comparisonResult) {
             case 'win':
-                this.user++;
+                score.user++;
                 break;
             case 'lost':
-                this.computer++;
+                score.computer++;
                 break;
             default:
-                this.user++;
-                this.computer++;
+                score.user++;
+                score.computer++;
         }
     },
     displayScore: () => {
-        document.getElementById('score').innerHTML = this.user + " : " + this.computer;
+        document.getElementById('score').innerHTML = score.user + " : " + score.computer;
     }
 };
 
@@ -33,7 +34,7 @@ document.querySelectorAll('#hand-option').forEach(hand =>
 );
 
 function computerChosenHand() {
-    let options = ['rock', 'paper', 'scissors'];
+    let options = ['paper', 'scissors', 'rock'];
     let hand = Math.floor((Math.random() * options.length));
     chosenHand.computer = options[hand];
     deployHand(chosenHand.computer, computerHandDisplayDestination);
