@@ -11,7 +11,7 @@
     <div class="container">
         <div class="scoreboard">
             <p>SCORE</p>
-            <div class="score"></div>
+            <div class="score" id="score">0 : 0</div>
         </div>
         <div class="chosen-hand">
             <div class="user-hand">
@@ -26,19 +26,26 @@
             </div>
         </div>
         <div class="options-container">
-            <div class="options" id="rock-option" value="rock">
-                <img class="hand" src="images/rock.png">
+            <div class="options">
+                <input type="image" src="images/rock.png" id="hand-option" class="hand" value="rock">
                 <img class="frame frame-option" src="images/orange-frame.png">
             </div>
-            <div class="options" id="paper-option" value="paper">
-                <img class="hand" src="images/paper.png">
+            <div class="options">
+                <input type="image" src="images/paper.png" id="hand-option" class="hand" value="paper">
                 <img class="frame frame-option" src="images/orange-frame.png">
             </div>
-            <div class="options" id="scissors-option" value="scissors">
-                <img class="hand" src="images/scissors.png">
+            <div class="options">
+                <input type="image" src="images/scissors.png" id="hand-option" class="hand" value="scissors">
                 <img class="frame frame-option" src="images/orange-frame.png">
             </div>
         </div>
+        <div class="pop-up-container" id="pop-up-container">
+            <div class="pop-up" id="pop-up">
+                <p class="game-result" id="game-result"></p>
+                <button id="retry-button">PLAY AGAIN</button>
+            </div>
+        </div>
+
         <footer>
             <p>
                 &copy; <span id="date"></span> by <a href="https://github.com/ASPactores"> ASPactores </a>
