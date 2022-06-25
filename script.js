@@ -30,8 +30,31 @@ document.querySelectorAll('#hand-option').forEach(hand =>
         computerChosenHand();
         score.adjustScore(compareHand(chosenHand.user, chosenHand.computer));
         score.displayScore();
+
+        if (score.user == 5 || score.computer == 5) {
+            let element = document.getElementById('game-result');
+
+            if (score.user == 5) element.innerHTML = "You Win!";
+            else if (score.computer == 5) element.innerHTML = "You Lose";
+            else if (score.user == 5 && score.computer == 5) element.innerHTML = "Tie";
+            
+            document.getElementById("pop-up-container").style.display = 'flex';
+
+            //remove photo from deck
+            resetDeck(userHandDisplayDestination);
+            resetDeck(computerHandDisplayDestination);
+        }
     })
 );
+
+document.getElementById('retry-button').addEventListener('click', () => {
+    //resets scoreboard
+    score.user = 0;
+    score.computer = 0;
+    score.displayScore();
+
+    document.getElementById("pop-up-container").style.display = 'none';
+})
 
 function computerChosenHand() {
     let options = ['paper', 'scissors', 'rock'];
@@ -72,17 +95,10 @@ function deployHand(hand, destination) {
     element.appendChild(image);
 }
 
-
-
-
-
-
+function resetDeck(destination) {
+    let element = document.getElementById(destination);
+    element.removeChild(element.firstChild);
+}
 
 // footer date
 document.getElementById('date').innerHTML = new Date().getFullYear();
-
-
-// // test
-// var image = new Image();
-// image.src = 'images/scissors.png';
-// document.getElementById('user-chosen-hand').appendChild(image);

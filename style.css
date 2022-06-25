@@ -108,6 +108,16 @@ body {
     top: 15px;
 }
 
+.pop-up-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000081;
+}
+
 .pop-up {
     display: flex;
     flex-direction: column;
@@ -116,8 +126,7 @@ body {
     background-color: rgb(202, 114, 31);
     border: 15px double rgb(128, 72, 12);
     height: 400px;
-    width: 800px;
-    position: absolute;
+    min-width: 60%;
     padding: 20px;
 }
 
@@ -157,4 +166,41 @@ footer {
 footer, footer a {
     color: white;
     font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+    .options {
+        margin: 5px;
+        transition: 0s;
+    }
+
+    .frame {
+        width: 130px;
+        margin: 0 5px 0 5px;
+    }
+
+    .frame-option {width: 115px;}
+    
+    .hand {
+        width: 105px;
+        left: 10px;
+        top: 5px;
+    }
+
+    .options:active {transform: scale(1.1);}
+
+    .user-chosen-hand, .computer-chosen-hand {
+        height: 130px;
+        top: 30px;
+        left: -15px;
+    }
+
+    .pop-up {width: 80%;}
+
+    .pop-up .game-result {font-size: 50px;}
+
+    .pop-up button {
+        font-size: 20px;
+        width: 80%;
+    }
 }
