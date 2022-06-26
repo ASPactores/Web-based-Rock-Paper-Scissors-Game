@@ -1,5 +1,7 @@
+//global variables
 const userHandDisplayDestination = "user-chosen-hand";
 const computerHandDisplayDestination = "computer-chosen-hand";
+
 var chosenHand = {};
 
 var score = {
@@ -13,9 +15,6 @@ var score = {
             case 'lost':
                 score.computer++;
                 break;
-            default:
-                score.user++;
-                score.computer++;
         }
     },
     displayScore: () => {
@@ -23,6 +22,7 @@ var score = {
     }
 };
 
+// event listener for when a player clicks any of the hands
 document.querySelectorAll('#hand-option').forEach(hand => 
     hand.addEventListener('click', () => {
         chosenHand.user = hand.value;
@@ -31,6 +31,7 @@ document.querySelectorAll('#hand-option').forEach(hand =>
         score.adjustScore(compareHand(chosenHand.user, chosenHand.computer));
         score.displayScore();
 
+        //if one of the players wins, display pop-up window
         if (score.user == 5 || score.computer == 5) {
             let element = document.getElementById('game-result');
 
@@ -47,8 +48,8 @@ document.querySelectorAll('#hand-option').forEach(hand =>
     })
 );
 
+// reset scores when player wants to play again
 document.getElementById('retry-button').addEventListener('click', () => {
-    //resets scoreboard
     score.user = 0;
     score.computer = 0;
     score.displayScore();
@@ -56,6 +57,7 @@ document.getElementById('retry-button').addEventListener('click', () => {
     document.getElementById("pop-up-container").style.display = 'none';
 })
 
+// randomize computer's hand
 function computerChosenHand() {
     let options = ['paper', 'scissors', 'rock'];
     let hand = Math.floor((Math.random() * options.length));
@@ -63,6 +65,7 @@ function computerChosenHand() {
     deployHand(chosenHand.computer, computerHandDisplayDestination);
 }
 
+// compares user's chosen hand against computer's chosen hand
 function compareHand(userHand, computerHand) {
     if (userHand == 'rock') {
         if (computerHand == 'rock') return 'tie';
@@ -79,6 +82,7 @@ function compareHand(userHand, computerHand) {
     }
 }
 
+// display chosen hand
 function deployHand(hand, destination) {
     let image, element;
 
@@ -87,6 +91,7 @@ function deployHand(hand, destination) {
 
     element = document.getElementById(destination);
 
+    // replace image in the deck if it already exists
     if (element.firstChild) {
         element.removeChild(element.firstChild);
         element.appendChild(image);
