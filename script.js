@@ -91,7 +91,7 @@ function deployHand(hand, destination) {
 
     element = document.getElementById(destination);
 
-    // replace image in the deck if it already exists
+    // replace image in the deck is already occupied by an image
     if (element.firstChild) {
         element.removeChild(element.firstChild);
         element.appendChild(image);
